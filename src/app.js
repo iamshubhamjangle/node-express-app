@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/api/status", appRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/user", userRoutes);
 
 // Error handling middleware
 app.use(notFound); // Handle 404 errors
