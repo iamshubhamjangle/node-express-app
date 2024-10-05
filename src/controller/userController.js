@@ -1,6 +1,7 @@
 const userService = require("../service/userService");
 const { z } = require("zod");
 const logger = require("../utils/logger");
+const createResponseJSON = require("../utils/createResponseJSON");
 
 // Define Zod schemas
 const signUpSchema = z.object({
@@ -21,10 +22,14 @@ const signUp = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await userService.signUp(email, password);
-    res.status(201).json({ message: "User created successfully", user });
+    res
+      .status(201)
+      .json(createResponseJSON(true, "User created successfully", { user }));
   } catch (error) {
     logger.error("Signup error:", error); // Log the error
-    res.status(400).json({ message: "An error occurred. Please try again." }); // Generic message
+    res
+      .status(400)
+      .json(createResponseJSON(false, "An error occurred. Please try again."));
   }
 };
 
@@ -36,13 +41,14 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
 
     const { token } = await userService.login(email, password);
-    res.status(200).json({
-      message: "Login successful",
-      token,
-    });
+    res
+      .status(200)
+      .json(createResponseJSON(true, "Login successful", { token }));
   } catch (error) {
-    logger.error("Login error:", error); // Log the error
-    res.status(401).json({ message: "An error occurred. Please try again." }); // Generic message
+    logger.error("Login error:", error);
+    res
+      .status(401)
+      .json(createResponseJSON(false, "An error occurred. Please try again."));
   }
 };
 
