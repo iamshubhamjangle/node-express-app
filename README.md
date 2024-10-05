@@ -1,36 +1,13 @@
-# AI-Powered Customized Document Search and Query App
+# Node-Express-Base
 
-The app will allow users to upload documents (PDFs, Word files, etc.), and they can query those documents using AI. The app will analyze the uploaded content, store the embeddings, and provide answers or relevant information based on the user’s query.
-
-#### **Process Flow:**
-
-1. **User Uploads Documents**: PDFs, Word files, or text documents.
-2. **Extract and Preprocess**: Extract text from the uploaded documents (using libraries like `pdf-parse` or `pdf.js` for PDFs, and `docx` for Word files).
-3. **Embedding with Vector DB**:
-   - Create vector embeddings of the document text using OpenAI’s embedding models or similar (e.g., `Ada` embedding model).
-   - Store embeddings in a vector database like **Pinecone** or **Weaviate** for fast similarity search.
-4. **User Sends Query**: User sends a text-based query related to the uploaded documents.
-5. **Search and Match**:
-   - Query embedding generated and compared with document embeddings in the vector database.
-   - Perform similarity search to retrieve the relevant document snippets.
-6. **Generate Answer**:
-   - Pass relevant text/document snippets to an AI model (like OpenAI GPT) to generate a comprehensive answer based on the context.
-7. **Respond to User**: Return the generated response to the user.
-
-#### **Flow Example**:
-
-1. **Document Upload**: User uploads a PDF, and the backend extracts text, generates vector embeddings, and stores them in Pinecone.
-2. **Querying**: User asks, _"Can you summarize the conclusion of the research paper?"_
-3. **Embedding & Search**: The query embedding is generated and searched in the vector database for relevant sections of the document.
-4. **AI Response**: The retrieved content is passed to OpenAI GPT to summarize or generate a response.
-5. **Final Output**: The user sees a concise, AI-generated answer.
-
-## Tech Stack
-
-- Node.js
-- Express
-- PostgreSQL
-- Prisma (ORM)
+- Support's industry best practises
+- Scalable folder structure
+- Prisma - Postgres Setup
+- Login/Signup flow (JWT) Setup
+- Logging Setup
+- Rate limiter
+- CORS Setup
+- Required Security headers
 
 ## Installation
 
