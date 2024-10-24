@@ -30,10 +30,9 @@
 
 - Create a `.env` file in the root directory and add your environment variables.
 
-```
+```env
 PORT=5000
-DATABASE_URL=""
-OPEN_AI=""
+DATABASE_URL="" #postgres db instance
 JWT_SECRET=""
 ```
 
